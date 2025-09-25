@@ -1,0 +1,58 @@
+{
+  "name": "micro-app-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "微前端项目 - 包含主应用和两个子应用",
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev:main\" \"npm run dev:child-one\" \"npm run dev:child-two\"",
+    "dev:main": "cd main-app && npm run dev",
+    "dev:child-one": "cd child-one && npm run dev",
+    "dev:child-two": "cd child-two && npm run dev",
+    "build": "npm run build:main && npm run build:child-one && npm run build:child-two",
+    "build:main": "cd main-app && npm run build",
+    "build:child-one": "cd child-one && npm run build",
+    "build:child-two": "cd child-two && npm run build",
+    "preview": "concurrently \"npm run preview:main\" \"npm run preview:child-one\" \"npm run preview:child-two\"",
+    "preview:main": "cd main-app && npm run preview",
+    "preview:child-one": "cd child-one && npm run preview",
+    "preview:child-two": "cd child-two && npm run preview",
+    "install:all": "npm install && npm run install:main && npm run install:child-one && npm run install:child-two",
+    "install:main": "cd main-app && npm install",
+    "install:child-one": "cd child-one && npm install",
+    "install:child-two": "cd child-two && npm install",
+    "clean": "npm run clean:main && npm run clean:child-one && npm run clean:child-two",
+    "clean:main": "cd main-app && rmdir /s /q node_modules dist 2>nul || echo \"Already clean\"",
+    "clean:child-one": "cd child-one && rmdir /s /q node_modules dist 2>nul || echo \"Already clean\"",
+    "clean:child-two": "cd child-two && rmdir /s /q node_modules dist 2>nul || echo \"Already clean\"",
+    "format": "npm run format:main && npm run format:child-one && npm run format:child-two",
+    "format:main": "cd main-app && npm run format",
+    "format:child-one": "cd child-one && npm run format",
+    "format:child-two": "cd child-two && npm run format",
+    "type-check": "npm run type-check:main && npm run type-check:child-one && npm run type-check:child-two",
+    "type-check:main": "cd main-app && npm run type-check",
+    "type-check:child-one": "cd child-one && npm run type-check",
+    "type-check:child-two": "cd child-two && npm run type-check"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "main-app",
+    "child-one",
+    "child-two"
+  ],
+  "keywords": [
+    "vue3",
+    "vite",
+    "typescript",
+    "micro-frontend",
+    "ant-design-vue"
+  ],
+  "author": "Wang Junjie",
+  "license": "MIT"
+}
