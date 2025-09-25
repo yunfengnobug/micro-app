@@ -1,4 +1,4 @@
 /node_modules
-# /main-app
-# /child-one
-# /child-two
+/main-app
+/child-one
+/child-two
