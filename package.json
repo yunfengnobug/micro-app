@@ -9,6 +9,7 @@
     "npm": ">=8.0.0"
   },
   "scripts": {
+    "pull": "node pull-repos.js",
     "dev": "concurrently \"npm run dev:main\" \"npm run dev:child-one\" \"npm run dev:child-two\"",
     "dev:main": "cd main-app && npm run dev",
     "dev:child-one": "cd child-one && npm run dev",
